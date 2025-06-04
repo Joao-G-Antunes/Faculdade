@@ -10,7 +10,7 @@ int passo1(int numero) {
     return numero + reverso;
 }
 
-// passo 2 -> multiplicar cada dígito por sua ordem posicional (1 a n)
+// passo 2 -> multiplicar cada digito por sua ordem posicional (1 a n)
 int passo2(int soma) {
     char str[20];
     sprintf(str, "%d", soma);
@@ -24,7 +24,7 @@ int passo2(int soma) {
     return soma_produtos;
 }
 
-// passo 3 -> extrair dígito verificador (mod 10)
+// passo 3 -> extrair digito verificador (mod 10)
 void passo3(int codigo_verificador) {
     int digito = codigo_verificador % 10;
     printf("O codigo verificador e: %d\n", digito);
