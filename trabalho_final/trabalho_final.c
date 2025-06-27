@@ -9,10 +9,13 @@ void inicializarPolinomio(int p[]);
 
 void lerPolinomio(int p[]);
 
-void imprimirPolinomio(int p[]);
+void imprimirPolinomio(int p[], int tamanho);
 
+void somarPolinomios(int p1[], int p2[], int resultado[]);
 
+void subtrairPolinomios(int p1[], int p2[], int resultado[]);
 
+void multiplicarPolinomios(int p1[], int p2[], int resultado[]);
 
 int main() {
     int pol1[TAM]; //criacao do vetor pol1 que guarda os coeficientes do primeiro polinomio
@@ -40,38 +43,64 @@ int main() {
                 printf("Digite os coeficientes do primeiro polinomio: \n");
                 lerPolinomio(pol1);
                 printf("Polinomio lido:\n");
-                imprimirPolinomio(pol1);
+                imprimirPolinomio(pol1, TAM);
     
                 //segundo polinomio
                 printf("Digite os coeficientes do segundo polinomio: \n");
                 lerPolinomio(pol2);
                 printf("Polinomio lido:\n");
-                imprimirPolinomio(pol2);
+                imprimirPolinomio(pol2, TAM);
 
                 lidos = true;
                 break;
 
-            case 2:
+            case 2: //soma
                 if (!lidos) {
                     printf("Os polinomio devem ser lidos primeiro. \n");
                 } else {
-
+                    int resultado[TAM];
+                    inicializarPolinomio(resultado);
+                    somarPolinomios(pol1, pol2, resultado);
+                    printf("Polinomio 1: ");
+                    imprimirPolinomio(pol1, TAM);
+                    printf("Polinomio 2: ");
+                    imprimirPolinomio(pol2, TAM);
+                    printf("Soma: ");
+                    imprimirPolinomio(resultado, TAM);
                 }
                 break;
 
-            case 3:
+            case 3: //subtracao
                 if (!lidos) {
                     printf("Os polinomio devem ser lidos primeiro. \n");
                 } else {
-
+                    int resultado[TAM];
+                    inicializarPolinomio(resultado);
+                    subtrairPolinomios(pol1, pol2, resultado);
+                    printf("Polinomio 1: ");
+                    imprimirPolinomio(pol1, TAM);
+                    printf("Polinomio 2: ");
+                    imprimirPolinomio(pol2, TAM);
+                    printf("Subtracao: ");
+                    imprimirPolinomio(resultado, TAM);
                 }
                 break;
 
-            case 4: 
+            case 4: //multiplicacao
                 if (!lidos) {
                     printf("Os polinomio devem ser lidos primeiro. \n");
                 } else {
-
+                    int resultado[2 * TAM]; //
+                    for (int i = 0; i < 2 * TAM; i++) {
+                        resultado[i] = 0;
+                    }
+                    multiplicarPolinomios(pol1, pol2, resultado);
+                    printf("Polinomio 1: ");
+                    imprimirPolinomio(pol1, TAM);
+                    printf("Polinomio 2: ");
+                    imprimirPolinomio(pol2, TAM);
+                    printf("Multiplicacao: ");
+                    imprimirPolinomio(resultado, 2 * TAM);
                 }
                 break;
 
@@ -111,11 +140,11 @@ void lerPolinomio(int p[]) { //recebe o coeficiente de cada x
     }
 }
 
-void imprimirPolinomio(int p[]) {
+void imprimirPolinomio(int p[], int tamanho) {
     int i;
     int primeiro = 1;
 
-    for (i = 0; i < TAM; i++) {
+    for (i = 0; i < tamanho; i++) {
         if (p[i] != 0) {
             if (primeiro) { //se for o primeiro termo do polinomio
                 if (p[i] < 0) {
@@ -158,4 +187,27 @@ void imprimirPolinomio(int p[]) {
     }
 
     printf("\n");
+}
+
+void somarPolinomios(int p1[], int p2[], int resultado[]) {
+    int i;
+    for (i = 0; i < TAM; i++) {
+        resultado[i] = p1[i] + p2[i];
+    }
+}
+
+void subtrairPolinomios(int p1[], int p2[], int resultado[]) {
+    int i;
+    for (i = 0; i < TAM; i++) {
+        resultado[i] = p1[i] - p2[i];
+    }
+}
+
+void multiplicarPolinomios(int p1[], int p2[], int resultado[]) {
+    int i, j;
+    for (i = 0; i < TAM; i++) {
+        for (j = 0; j < TAM; j++) {
+            resultado[i + j] += p1[i] * p2[j];
+        }
+    }
 }
