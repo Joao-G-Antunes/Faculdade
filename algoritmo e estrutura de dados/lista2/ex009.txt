@@ -1,0 +1,11 @@
+9- Explique os riscos da alocação manual de memória em C (como memory leak e
+dangling pointer). Em contraste, descreva como o garbage collector do Python resolve
+esses problemas.
+
+R:
+Em C, o gerenciamento manual de memória cria riscos como o memory leak, que ocorre quando a memória alocada
+não é liberada e se acumula indevidamente, e o dangling pointer, um ponteiro que aponta para uma área de memória 
+já liberada, causando falhas e comportamento imprevisível. Em contraste, o Python resolve esses problemas com seu
+Garbage Collector automático. Ele utiliza um sistema de contagem de referências, onde a memória de um objeto é
+liberada automaticamente assim que ele se torna inacessível. Isso previne vazamentos e elimina a possibilidade
+de ponteiros pendentes, já que a memória nunca é liberada enquanto ainda houver uma referência válida para ela.

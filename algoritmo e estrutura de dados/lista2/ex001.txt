@@ -1,0 +1,27 @@
+1- Escreva um algoritmo que leia três números inteiros, calcule a média aritmética e informe
+se ela é maior, igual ou menor que 10.
+
+R: 
+
+INÍCIO
+  DECLARE numero1, numero2, numero3, media COMO NÚMERO
+
+  ESCREVA "Digite o primeiro número:"
+  LEIA numero1
+
+  ESCREVA "Digite o segundo número:"
+  LEIA numero2
+
+  ESCREVA "Digite o terceiro número:"
+  LEIA numero3
+
+  media = (numero1 + numero2 + numero3) / 3
+
+  SE media > 10 ENTÃO
+    ESCREVA "A média é maior que 10"
+  SENÃO SE media < 10 ENTÃO
+    ESCREVA "A média é menor que 10"
+  SENÃO
+    ESCREVA "A média é igual a 10"
+  FIM_SE
+FIM

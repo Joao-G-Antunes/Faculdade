@@ -1,0 +1,11 @@
+2- Explique a diferença entre dados e informação. Em seguida, classifique os seguintes
+exemplos como dado ou informação:
+
+R:
+Um dado é um elemento bruto, sem cotexto. Enquanto isso, a informação é um 
+dado processado, com contexto e significado.
+
+"42": Dado
+"Temperatura média em Goiânia no mês de julho foi 42°C": Informação
+"Maria": Dado
+"Nota final de Maria: 9,2": Informação
